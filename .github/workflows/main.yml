@@ -1,0 +1,17 @@
+name: test_workflow_dispatch
+
+on:
+  workflow_dispatch
+    inputs:
+      name:
+        description: 'Name of the person to greet'
+        required: true
+        type: string
+      greeting:
+        description: 'Type of greeting'
+        require: true
+        type: string
+      data:
+        description: 'Base64 encoded content of a file'
+        required: false
+        type: string
