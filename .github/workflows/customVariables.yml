@@ -16,3 +16,13 @@ jobs:
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK."
         env:
           First_Name: Mona
+
+      - name: Set dynamic env variable
+        run: |
+          # Using workflow command to set an environment variable
+          echo "DYNAMIC_VAR=Hello from GitHub Actions" > $GITHUB_ENV
+
+      - name: Use dynamic env var
+        run: |
+          # Using the env var in a subsequent step
+          echo "The value of DYNAMIC_VAR is: $DYNAMIC_VAR"
