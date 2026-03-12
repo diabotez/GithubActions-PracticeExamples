@@ -1,0 +1,17 @@
+name: Default Env Vars Example
+
+on: ['push']
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions.checkout@v2
+
+      - name: Print GitHub Environment Variables
+        run: |
+          echo "Repository Name: $GITHUB_REPOSITORY"
+          echo "Workflow: $GITHUB_WORKFLOW"
+          echo "Action: $GITHUB_ACTION"
+          echo "Actor: $GITHUB_ACTOR"
