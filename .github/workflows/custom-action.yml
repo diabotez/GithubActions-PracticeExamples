@@ -10,7 +10,7 @@ on:
       name:
         description: 'Name of the person to greet'
         required: false
-        default: ${{ env.WHO_TO_GREET }}
+        default: ${{ WHO_TO_GREET }}
         type: string
 
 env:
