@@ -12,7 +12,8 @@ on:
         required: false
         default: Dalwar
         type: string
-
+env:
+  WHO_TO_GREET: Dalwar
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,11 +21,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract name
+        run: echo "who-to-greet=${{ inputs.name || env.WHO_TO_GREET }}" >> $GITHUB_ENV
+
       - name: Run custom action
         id: hello
         uses: diabotez/barum@v0.1.1
         with:
-          who-to-greet: ${{ inputs.name }}
+          who-to-greet: $who-to-greet
 
       - name: Display output
-        run: echo "${{inputs.name}}'s greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "${{who-to-greet}}'s greeting time was ${{ steps.hello.outputs.time }}"
