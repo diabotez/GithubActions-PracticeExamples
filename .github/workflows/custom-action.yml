@@ -19,4 +19,4 @@ jobs:
           who-to-greet: Dalwar
 
       - name: Display output
-        run: echo "Greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "${{who-to-greet}}'s greeting time was ${{ steps.hello.outputs.time }}"
