@@ -31,4 +31,4 @@ jobs:
           who-to-greet: $who-to-greet
 
       - name: Display output
-        run: echo "${{who-to-greet}}'s greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "$who-to-greet 's greeting time was ${{ steps.hello.outputs.time }}"
