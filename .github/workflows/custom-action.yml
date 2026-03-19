@@ -28,7 +28,7 @@ jobs:
         id: hello
         uses: diabotez/barum@v0.1.1
         with:
-          who-to-greet: $who-to-greet
+          who-to-greet: $GITHUB_ENV.who-to-greet
 
       - name: Display output
         run: echo "$who-to-greet 's greeting time was ${{ steps.hello.outputs.time }}"
