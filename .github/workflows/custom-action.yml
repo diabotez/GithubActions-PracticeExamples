@@ -5,6 +5,17 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name of the person to greet'
+        required: false
+        default: ${{ env.WHO_TO_GREET }}
+        type: string
+
+env:
+  WHO_TO_GREET: Dalwar
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,10 +26,8 @@ jobs:
       - name: Run custom action
         id: hello
         uses: diabotez/barum@v0.1.1
-        env:
-          WHO_TO_GREET: Dalwar
         with:
-          who-to-greet: $WHO_TO_GREET
+          who-to-greet: ${{ inputs.name }}
 
       - name: Display output
-        run: echo "${{steps.hello.env.WHO_TO_GREET}}'s greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "${{inputs.name}}'s greeting time was ${{ steps.hello.outputs.time }}"
