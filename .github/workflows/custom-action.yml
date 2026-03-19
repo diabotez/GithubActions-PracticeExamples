@@ -14,7 +14,7 @@ jobs:
 
       - name: Run custom action
         id: testingAction
-        uses: diabotez/barum@v0.0.1
+        uses: diabotez/barum@v0.0.2
         with:
           name: Dalwar
 
