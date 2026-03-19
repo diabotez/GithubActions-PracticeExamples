@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run custom action
-        id: testingAction
-        uses: diabotez/barum@v0.1.0
+        id: hello
+        uses: diabotez/barum@v0.1.1
         with:
-          name: Dalwar
+          who-to-greet: Dalwar
 
       - name: Display output
-        run: echo "Greeting ${{ steps.testingAction.outputs.greeting }}"
+        run: echo "Greeting time was ${{ steps.hello.outputs.time }}"
