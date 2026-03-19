@@ -13,7 +13,7 @@ on:
         default: Dalwar
         type: string
 env:
-  WHO_TO_GREET: Dalwar
+  GREET: Dalwar
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -22,13 +22,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract name
-        run: echo "who-to-greet=${{ inputs.name || env.WHO_TO_GREET }}" >> $GITHUB_ENV
+        run: echo "WHO_TO_GREET=${{ inputs.name || env.GREET }}" >> $GITHUB_ENV
 
       - name: Run custom action
         id: hello
         uses: diabotez/barum@v0.1.1
         with:
-          who-to-greet: ${{GITHUB_ENV.who-to-greet}}
+          who-to-greet: $WHO_TO_GREET
 
       - name: Display output
-        run: echo "$who-to-greet 's greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "$WHO_TO_GREET 's greeting time was ${{ steps.hello.outputs.time }}"
