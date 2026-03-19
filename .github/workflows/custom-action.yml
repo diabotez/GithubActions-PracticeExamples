@@ -10,11 +10,8 @@ on:
       name:
         description: 'Name of the person to greet'
         required: false
-        default: ${{ WHO_TO_GREET }}
+        default: Dalwar
         type: string
-
-env:
-  WHO_TO_GREET: Dalwar
 
 jobs:
   test:
